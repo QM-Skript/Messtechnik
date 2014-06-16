@@ -1,0 +1,185 @@
+%Präambel:
+\documentclass{article}						% Vor dem Drucken auf scrartcl ändern
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}					% für Sonderzeichen
+\usepackage[T1]{fontenc}					% zur Umsetzung von Sondereichen
+\usepackage{url}
+\usepackage[pdfborder ={0 0 0}]{hyperref}	% für Verlinkungen
+\usepackage{enumitem}						% Zum Nummerieren
+\usepackage{amsmath}						% Math. Zeichen
+\usepackage{amssymb}						% Math. Symbole
+\usepackage{graphicx}						% Bilder einfügen
+\usepackage{longtable}						% Tabellen über eine Seite
+\usepackage{subfigure}						% Zwei Bilder nebeneinander
+\usepackage{wrapfig}
+\usepackage{caption}						% Hilfsmittel, damit Bilder nicht auf die nächste Seite geschoben werden
+\usepackage[decimalsymbol=comma]{siunitx}				% Für schöne Einheiten mit Komma
+            
+
+
+\title{Rauschgrundlagen und Verstärkerrauschen}
+\author{Friedrich Möller und Wilhelm Eschen}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\clearpage
+			
+
+\section{Aufgaben}
+
+\clearpage
+
+\section{Grundlagen}
+				
+\clearpage
+				 
+\section{Auswertung}
+	\subsection{Auswertung Rauschgrundlagen}
+		Zunächst sollte in Aufgabe 1.1 a) die Eigenschaften von Rauschsignalen untersucht werden. Dabei sollte zuerst ein Histogramm von weißem Rauschen erstellt werden. Es wurden dabei Histogramme aufgenommen für unterschiedlich eingestellte Offset Werte. Das Rauschen wurde auf \SI{5}{\volt}$_{PP}$ eingestellt. Wie man erkennen kann, entspricht der Offset dem Mittelwert des Rauschen. Des weiteren wurde festgestellt, dass das Histogramm einer Normalverteilung entspricht.
+		
+		\begin{figure}[h!]
+			\subfigure[Zeitverlauf Offset = \SI{0}{\volt}]{\includegraphics[scale=0.25]{1,1_a_V_Offset_5VPP_Zeit.png}}
+			\subfigure[Histogramm Offset = \SI{0}{\volt}]{\includegraphics[scale=0.25]{1,1_a_0V_Offset_5VPP_Histo}}
+		\end{figure}
+		
+		\begin{figure}[h!]
+			\subfigure[Histogramm Offset = \SI{500}{\milli\volt}]{\includegraphics[scale=0.25]{1,1_a_500mV_Offset_5VPP_Histo}}
+			\subfigure[Histogramm Offset = \SI{1}{\volt}]{\includegraphics[scale=0.25]{1,1_a_1V_Offset_5VPP_Histo}}
+		\end{figure}
+		
+		In Aufgabe 1.1 b) sollte danach der Mittelwert, Effektivwert und Varianz vom Rauschen bestimmt werden. Dafür wurden zunächst ein Offset von $ U_{Offset} = \SI{0,5}{\volt} $ verwendet und folgende Werte notiert. \\
+		\begin{center}
+			\begin{tabular}{|c|c|}
+			\hline Mittelwert & $ \SI{0,495}{\volt} $ \\ 
+			\hline Effektivwert & $ \SI{0,215}{\volt} $ \\ 
+			\hline Varianz & $ \SI{0,046}{\volt^2} $ \\ 
+			\hline 
+			\end{tabular} 
+		\end{center}
+		
+		Der Mittelwert konnte durch das Einstellen des Offset-Werts verändert werden. Durch eine Änderung der Rauschamplitude konnte die Amplitude des Rauschen verringert werden und damit die Standardabweichung und Varianz. Dies kann man im Spektrum erkennen.
+		Im Spektrum kann man jedoch leider nicht erkennen, dass der Offset der Frequenz bei $ \approx \SI{0}{\hertz} $ entspricht, da diese Frequenz leider nicht mit abgespeichert wurde.
+		
+		\begin{figure}[h!]
+			\subfigure[Spektrum $ \SI{5}{\volt_{PP}} $]{\includegraphics[scale=0.25]{1_1_b_Spektrum}}
+			\subfigure[Spektrum $ \SI{500}{\milli\volt_{PP}} $]{\includegraphics[scale=0.25]{1_1_b_Spektrum_0,5Vpp}}
+		\end{figure}
+		
+		Im Aufgabenteil 1.1 c) sollte die Autokorrelationsfunktion des weißen Rauschen untersucht und mit dem Spektrum verglichen werden. Für die Autokorrelationsfunktion von weißem Rauschen wurde ein Diracimplus erwartet, da weißes Rauschen unabhängig von der Zeit ist. Es wurde dabei folgende Autokorrelationsfunktion aufgenommen. Man kann dabei einen Diracpuls mit einer gewissen Bereit bei t=\SI{1}{\sec} erkennen. Jedoch ist fraglich, ob die aufgenommene Autokorrelationsfunktion richtig ist, da keine Messwerte für $ x>1 $ vorhanden waren, sodass ich die Messwerte bearbeiten musste.
+		\clearpage
+		
+		\begin{figure}[h!]
+			\subfigure[Spektrum von $ U_{Of}=\SI{1}{\volt} $ und $ \SI{3}{\volt_{PP}} $]{\includegraphics[scale=0.25]{Autokorrfkt_Spektrum}}
+			\subfigure[Autokorrelationsfunktion von $ U_{Of}=\SI{1}{\volt} $ und $ \SI{3}{\volt_{PP}} $]{\includegraphics[scale=0.25]{AutokorrelationsFKT_1V_3Vpp}}
+		\end{figure}
+		
+		In Aufgabe 1.1 d) sollte nun ein Tiefpass zum Filtern verwendet werden. Dabei wurde ein Widerstand von $  R = \SI{100}{\kilo\ohm} $ und ein Kondensator von $  C = \SI{100}{\nano\farad} $ gewählt. Dies ergibt $  f_{Grenz} = \frac{1}{2\pi RC} = \SI{353}{\hertz} $ Dies bestätigt die Amplitudenübertragungsfunktion. 
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.25]{Amplitudenuebertragungsfunktion}
+			\caption{Amplitudenübertragungsfunktion des Tiefpasses.}
+		\end{figure}
+		
+		Für den Mittelwert, Standardabweichung und Varianz ergeben sich folgende Werte. Wie leicht zu sehen ist, konnte durch den Tiefpass die Standardabweichung von \SI{0,215}{\volt} auf \SI{0,043}{\volt} verkleinert werde. Dies bedeutet, dass somit auch das Rauschen verringert wurde.
+		\begin{center}
+			\begin{tabular}{|c|c|c|}
+			\hline  & Ohne Tiefpass & Mit Tiefpass \\ 
+			\hline Mittelwert & \SI{0,495}{\volt} & \SI{0,501}{\volt} \\ 
+			\hline Standardabweichung & \SI{0,215}{\volt} & \SI{0,043}{\volt} \\ 
+			\hline Varianz & $ \SI{0,046}{\volt^2} $ & $ \SI{18}{\micro\volt^2} $ \\ 
+			\hline 
+			\end{tabular} 
+		\end{center}
+
+		Bei den Daten der Autokorrelationsfunktion gab es auch hier die Probleme mit den verschwunden x-Werten, die von mir hinzugefügt wurden. Im Vergleich zu der Autokorrelationsfunktion vor dem Tiefpass fällt auf, dass das Dreieck spitzer geworden ist und somit die Autokorrelationsfunktion eher dem Diracpuls ähnelt. 
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.25]{TiefpasseAutokorrelationsfunktion}
+			\caption{Autokorrelationsfunktion mit Tiefpass}
+		\end{figure}
+		
+		Im Aufgabenteil 1.1 e) sollten 3 verschiedene Signal-/Rausch-Verhältnisse erzeugt werden. Als Signal wurde dabei eine Sinusspannung mit einer Frequenz von $ f = \SI{180}{\hertz} $ gewählt mit einer Amplitude von $ U = \SI{72}{\milli\volt} $. Auffallend war dabei, dass das Signal länger im Spektrum zu erkennen war als im Zeitverlauf. D.h., dass selbst bei einem $ SNR = 1,61 $ das Signal im Spektrum noch leicht zu erkennen war. Das Signal-/Rausch-Verhältnisse wurde durch $ SNR = \frac{U^2_{Signal}}{U^2_{Rausch}}$ berechnet, wobei $ U^2_{Rausch}  $ der Varianz entspricht.
+		
+		\begin{figure}[h!]
+			\caption{SNR=640}
+			\subfigure[Zeitverlauf für $ U_{Rausch}^2 = $ \SI{8,1}{\milli\volt^2}]{\includegraphics[scale=0.25]{SNR_1V_PP_Zeit}}
+			\subfigure[Spektrum für $ U_{Rausch}^2 = $ \SI{8,1}{\milli\volt^2}]{\includegraphics[scale=0.25]{SNR_1VPP_Frequenz}}
+		\end{figure}
+		
+		\begin{figure}[h!]
+			\caption{SNR=1,61}
+			\subfigure[Zeitverlauf für $ U_{Rausch}^2 = $ \SI{3,22e-3}{\milli\volt^2}]{\includegraphics[scale=0.25]{SNR_20VPP_Zeit}}
+			\subfigure[Spektrum für $ U_{Rausch}^2 = $ \SI{3,22e-3}{\milli\volt^2}]{\includegraphics[scale=0.25]{SNR_20VPP_Frequenz}}
+		\end{figure}
+		\clearpage
+		
+		Im Aufgabenteil 1.2 ging es um die Rauschreduktion. Im Aufgabenteil 1.2 a) wurde dafür das Signal akkumuliert. Dies bedeutet, dass es mehrmals gemessen und dadurch gemittelt wurde. Als Beispiel hierfür wurde das Signal aus Aufgabenteil 1.1 e) verwendet mit einer Amplitude von $ U_{PP} = \SI{72}{\milli\volt} $ und einer Rauschamplitude von $ U^2 = \SI{7,95e-4}{\volt^2} $ und somit einem $ SNR = 6,5 $. Man erkennt eine deutliche Verbesserung durch die Akkumulation. Die Akkumulationstechnik hat jedoch zum Nachteil, dass die Messwertaufnahme länger dauert und dass diese nur funktioniert, wenn rauschen normalverteilt ist. 
+		\begin{figure}[h!]
+			\subfigure[Ohne Akkumulation]{\includegraphics[scale=0.25]{Akkumulation1}}
+			\subfigure[Mit 32-Facher Akkumulation]{\includegraphics[scale=0.25]{Akkumulation32}}
+		\end{figure}
+		
+		Als nächstes sollte in Aufgabe 1.2 b) der Tiefpass aus Aufgabe 1.1 verwendet werden und dadurch das Signal-/Rauschverhältnis verbessert werden. Dabei wurden die folgenden beiden Zeitverläufe aufgenommen. Es fällt dabei deutlich auf, dass das Rauschen bei dem Zeitsignal mit Tiefpass deutlich abgenommen hat im Vergleich zu dem Zeitsignal ohne Tiefpass. Dies liegt daran, dass durch den Tiefpass hohe Frequenzen weggefiltert werden und somit auch Rauschfrequenzen.
+		
+		\begin{figure}[h!]
+			\subfigure[Ohne Tiefpass]{\includegraphics[scale=0.2]{OhneTiefoass_Zeit}}
+			\subfigure[Mit Tiefpass]{\includegraphics[scale=0.2]{MitTiefpass_zeit}}
+		\end{figure}
+		
+		\clearpage
+		
+	\subsection{Auswertung Verstärkerrauschen}
+		Am zweiten Tag ging es um das Verstärkerrauschen. Dafür sollten zunächst die Verstärkereigenschaften untersucht werden. In Aufgabe 1.1 sollte dafür die Amplitudenübertragungsfunktion des Verstärkers für eine Verstärkung von $ V = 10 $ und $ V = 1000 $ aufgenommen werde und aus den gewonnen Daten das Verstärkungs-Bandbreite-Produkt bestimmt werden. Danach sollte die Offsetspannung des Verstärkers ermittelt werde.
+		
+		Es wurden die folgenden beiden Übertragungsfunktionen aufgenommen:
+		
+		\begin{figure}[h!]
+			\subfigure[V = 10]{\includegraphics[scale=0.25]{UebertragungsfunktionV10}}
+			\subfigure[V = 1000]{\includegraphics[scale=0.25]{UebertragungsfunktionV1000}}
+		\end{figure}
+		
+		Aus den Übertragungsfunktionen kann man eine \SI{3}{\decibel} Bandbreite (Abfall auf $ \frac{1}{\sqrt{2}}) $ von $ B_{V=10} = \SI{2,75}{\mega\hertz} $ und $ B_{V=1000} = \SI{71}{\kilo\hertz} $ bestimmen.  Für das Produkt ergibt sich damit: $ P_{V=10}=\SI{27,5}{\mega\hertz} $ und $ P_{V=1000} = \SI{7,1}{\mega\hertz} $. Für die Offsetspannung wurde $ U_{V=10} = \SI{-1}{\milli\volt} $ und $ U_{V=1000} = \SI{-91}{\milli\volt} $ bestimmt. \\
+		
+		Im Aufgabenteil 1.2 sollte die Störanfälligkeit von hochohmigen und niederohmigen Quellen beobachtet werden. Dafür wurde der variable Quellwiderstand verwendet und verstärkt ans Oszilloskop angeschlossen.
+		Für V = 10 und einen Vorwiderstand von R = \SI{1}{\giga\ohm} konnte am Oszilloskop ein Rauschen beobachtet werden. Wenn nun die Box des Widerstands mit der Hand berührt wurde, nahm das Rauschen zu. Wurde nun ein Widerstand von R = \SI{50}{\ohm} verwendet nahm das Rauschen merklich ab und durch eine Berührung mit der Hand konnte auch keine erkennbare Störung verursacht werden.
+		
+		Für eine Verstärkung von V = 1000 wurden die folgenden beiden Spektren aufgenommen: Dabei fällt wie bei der Verstärkung von V = 10 auf, dass es bei dem größeren Widerstand (R = \SI{100}{\kilo\ohm}) zu einem stärken Rauschen kommt. Man kann in beiden Spektren die Netzfrequenz von f = \SI{50}{\hertz} erkennen sowie dessen Oberwellen. Die Oberwellen nehmen mit zunehmender Frequenz ab.
+		\clearpage
+		
+		\begin{figure}[h!]
+			\subfigure[V = 1000 und ein Widerstand von R = \SI{50}{\ohm}]{\includegraphics[scale=0.25]{Stoerung_Kleiner_Widerstand}}
+			\subfigure[V = 1000 und ein Widerstand von R = \SI{100}{\kilo\ohm}]{\includegraphics[scale=0.25]{Stoerung_Grosser_Widerstand}}
+		\end{figure}
+		
+		Abschließend sollte in Aufgabe 1.2 die Wirkung einer Abschirmung untersucht werden. Dafür wurde wieder der Widerstand von R = \SI{100}{\kilo\ohm} verwendet. Durch die Abschirmung hat die Störanfälligkeit abgenommen. 
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.4]{Stoerung_mit_Abschirmung}
+			\caption{V = 1000 und hochohmiger Widerstand}
+		\end{figure}
+		
+		In der letzten Aufgabe 1.3 sollte das Verstärkerrauschen untersucht werden. Dazu wurde zunächst in Aufgabe 1.3 a) das Rauschspektrum des vorliegenden Verstärkers aufgenommen und auf $ \frac{1}{f} $ Rauschen untersucht. Dabei stellte sich heraus, dass kein $ \frac{1}{f} $ Rauschen für \SI{1}{\kilo\ohm} festgestellt werden konnte, jedoch für \SI{100}{\kilo\ohm} und einer Verstärkung von $ V = 1000 $. Dabei geht das $ \frac{1}{f} $ Rauschen an der Stelle $ f \approx \SI{70}{\hertz} $ in weißes Rauschen über. 
+		
+		\begin{figure}[h!]
+			\subfigure[V = 1000 und R = \SI{100}{\kilo\ohm}]{\includegraphics[scale=0.25]{1durchf_rauschen_V1000_100kiloOhm}}
+			\subfigure[V = 1000 und R = \SI{1}{\kilo\ohm}]{\includegraphics[scale=0.25]{1durchfRauschen_1kOhm_V1000}}
+		\end{figure}
+		
+		Darauf folgend sollten die Rauschparameter bestimmt werden. Dafür wurde eine Messreihe mit Quellwiderstand, Mittelwert V und spektrale Rauschspannungsdichte angelegt und die spektrale Rauschspannungsdichte über den Widerstand aufgetragen. Aus diesem Graphen konnte man die Rauschparameter $ e_{n} $, $ i_{n} $ und $ R_{n} $ ablesen. Dabei ergibt sich: $ e_n = \SI{2,69e-6}{\frac{\volt}{\sqrt{\hertz}}} \hat{=} \SI{8,49e-8}{\volt}$. $ i_n $ kann man aus der Steigung der Tangente berechnen und ergibt: $ i_n = \frac{\Delta U}{\Delta R} = \frac{\SI{3,25e-7}{\volt}}{\SI{900}{\kilo\ohm}} = \SI{0,36}{\pico\ampere}$. Für Rauschanpassung wird gefordert: $ R_{opt} = \frac{e_n}{i_n} = \SI{236}{\kilo\ohm}  $
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.4]{EingangsbezogenesRauschen}
+			\caption{Eingangsbezogenes Rauschen}
+		\end{figure}
+		
+		\clearpage
+\section{Diskussion}
+
+\section{Referenzen}
+				
+\end{document}
