@@ -27,11 +27,120 @@
 			
 
 \section{Aufgaben}
+	\subsection*{Versuchstag 1 - Rauschgrundlagen}
+		
+		\subsubsection*{Aufgabe 1.1 - Eigenschaften von Rauschsignalen}
+			\begin{enumerate}
+				\item Nehmen Sie ein Histogramm von weißem Rauschen auf.
+				\item Bestimmen Sie den Mittelwert, Effektivwert sowie die Varianz eines
+Rauschsignals. Vergleichen Sie mit einem aufgenommenen Spektrum.
+				\item  Untersuchen Sie die Autokorrelationsfunktion von weißem Rauschen. Vergleichen
+Sie die Resultate mit dem Spektrum des Signals.
+				\item Wiederholen Sie die die letzten zwei Punkte nur nach Durchgang durch einen Tiefpass geeigneter Grenzfrequenz.
+				\item Erzeugen Sie 3 verschiedene Signale-/Rausch-Verhältnisse und bewerten Sie das
+Signal
+			\end{enumerate}
+			
+		\subsubsection*{Aufgabe 1.2 - Rauschreduktion}
+			\begin{enumerate}
+				\item Wählen Sie ein SNR aus Aufgabe 1.1.5 aus und lassen Sie das Signal unterschiedlich
+oft akkumulieren. Bewerten Sie das SNR nach der Akkumulation.
+				\item Bestimmen Sie die Rauschbandbreite des Tiefpasses aus Aufgabe 1.1.3. Legen Sie
+nun das Signal-Rausch-Gemisch aus Aufgabe 1.2.1 an den Tiefpass an und
+bewerten Sie das SNR nach dem Durchgang durch den Filter. Vergleichen Sie mit
+den theoretischen Vorhersagen.
+				\item Bewerten Sie das Signal vor und nach dem Durchgang durch einen Schmalbandverstärker.
+\end{enumerate}		
 
+	\subsection*{Versuchstag 2 - Verstärkerrauschen}
+		\subsubsection*{Aufgabe 1.1 - Verstärkereigenschaften}
+			\begin{enumerate}
+				\item Bestimmen Sie die Amplitudenübertragungsfunktion der vorliegenden
+Verstärkerschaltung.
+				\item Bestimmen Sie aus den Daten aus Aufgabe 1a) das Verstärkungs-Bandbreite-
+Produkt. 
+				\item Bestimmen Sie die Offsetspannung des Verstärkers.
+			\end{enumerate}	
+		\subsubsection*{Aufgabe 1.2 - Störungen}
+			\begin{enumerate}
+				\item Vergleichen Sie das Verhalten einer hochohmigen sowie einer niederohmigen
+Quelle.
+				\item Untersuchen Sie das Störspektrum bei hochohmigen Eingang.
+				\item Untersuchen Sie die Wirkung einer Abschirmung.
+			\end{enumerate}
+		\subsubsection*{Aufgabe 1.3 - Verstärkerrauschen}
+			\begin{enumerate}
+				\item Nehmen Sie das Rauschspektrum des vorliegenden Verstärkers auf und
+bestimmen Sie den Abknickpunkt des 1/f-Rauschens.
+				\item Bestimmen Sie die Rauschparameter des vorliegenden Verstärkers für das
+einfache Verstärkerrauschmodell.
+				\item Wie groß muss der Innenwiderstand der Signalquelle gewählt werden, um Rauschanpassung zu erhalten?
+			\end{enumerate}				
 \clearpage
 
 \section{Grundlagen}
-				
+				\subsection{Rauschgrundlagen}
+			Rauschen ist die statistische Schwankung einer Messgröße. Dieser Vorgang kommt durch Zitterbewegung von Ladungsträgern zustande und überlagert somit jede Messung bei $T \neq 0 \ K$. Empfindliche Messungen laufen daher am Rauschlimit.
+			Zur Charakterisierung von Rauschen eignet sich die Varianz:
+			\begin{equation}
+				\left\langle U^{2} \right\rangle = \frac{1}{T} \int\limits_{0}^{T} \left(U(t)- \langle U \rangle \right)^{2} \operatorname{d}t \ .
+			\end{equation}
+			Für eine bessere Vergleichbarkeit mit den Amplituden verwendet man oft auch die Standardabweichung:
+			\begin{equation}
+				\sqrt{\left\langle U^{2} \right\rangle} = \sqrt{\frac{1}{T} \int\limits_{0}^{T} \left(U(t)- \langle U \rangle \right)^{2} \operatorname{d}t} \ .
+			\end{equation}
+			Der Mittelwert hingegen eignet sich nicht zur Charakterisierung des Rauschens, da sich im Mittel gleich viele positive, wie negative Werte ergeben.
+			\begin{equation}
+				\left\langle U \right\rangle = \frac{1}{T} \int\limits_{0}^{T} U(t) \operatorname{d}t =0 \ .
+			\end{equation}
+		\newline
+		Rauschprozesse werden hinsichtlich Ihres Spektrums unterteilt. Die häufigsten auftretenden Rauscharten sind:
+		\begin{itemize}
+			\item weißes Rauschen: konstantes Frequenzspektrum
+			\item rosa Rauschen: niedrige Frequenzen stärker vertreten als hohe: $F(\omega) \propto \frac{1}{\omega ^{n}}$ mit $n=1\cdots 2$
+			\item thermisches Rauschen: $U_n ^2=4k_{B}TR\Delta f$
+		\end{itemize}
+		Eine wichtige Größe für die Beschreibung des Elektronischen Rauschen, welches ein zu messendes Signal überlagert, ist das Signal-Rausch-Verhältnis (SNR). Es gilt:
+		\begin{equation}
+			SNR=\frac{P_{Signal}}{P_{Rauschen}}=\frac{\frac{U_{Signal}^2}{R}}{\frac{U_{Rauschen}^2}{R}}=\frac{U_{Signal}^2}{U_{Rauschen}^2}
+		\end{equation}
+		Hierbei gilt das zweite Gleichheitszeichen nur, wenn  Signal und Rauschen an einem Ohmschen Widerstand abgegriffen werden. Dabei gilt $U_{Rauschen}^2=\left\langle U_{Rauschen}^{2} \right\rangle$. Bei Rauschen in zusammengesetzten Systemen erfolgt die Addition der Rauschleistungen, nicht der Amplituden: $U_{ges}^2=U_1^2+U_2^2$ .
+		\newline
+		Beim zweiten Versuchsteil sollte die Reduktion des Rauschens, also die Verbesserung des SNR untersucht werden. Dabei ist eine Möglichkeit die Akkumulation. Dies ist das wiederholte Aufaddieren des Signal Rausch Gemischs und anschließende Division durch die Anzahl der Prozesse. 
+		Dadurch verringert sich das Rauschen mit $1/\sqrt{N}$ durch den Mittelungsprozess- das Signal bleibt erhalten, wenn phasenrichtige Addition garantiert ist.
+		Mittels der Autokorrelationsfunktion, welche gemäß 
+		\begin{equation}
+			AKF(\tau)=\lim_{T \rightarrow \infty} \frac{1}{2T} \int \limits_{-T}^{+T} U(t) \cdot U(t+\tau) \operatorname{d}t
+		\end{equation}
+		definiert ist, kann die Periode des Signals im Signal-Rausch-Gemisch bestimmt werden. Dies funktioniert da für ein periodisches Signal die Anwendung der AKF die Periode erhalten lässt. Dadurch wird gezieltes Filtern möglich.
+		Ebenfalls kann mittels Filtern (Tiefpass, Hochpass oder Bandpass) das Rauschen weit weg vom Signal gezielt gedämpft werden.
+		
+	\subsection{Verstärkerrauschen}
+		Zunächst sollte man zu unterscheiden wissen, ob ein Rauschen, oder eine Störung vorliegt. Per Definition sind Störungen extern aufgeprägte, und dadurch abschirmbare unerwünschte Signale.
+		Rauschen hingegen sind intrinsisch, als stets vorhandene, jedoch optimierbare, unerwünschte Signale.
+		Störungen können Elektromagnetische Einstrahlungen oder beispielsweise magnetische Einkopplungen sein, welche durch Faraday-Käfig bzw. ferromagnetische Umhausung abgeschirmt werden können.
+		\newline
+		 Verstärker dienen der Anhebung der Signalamplitude. Dabei tritt thermisches Rauschen in allen Komponenten auf. Ein Verstärker fügt jedem Signal-Rausch Gemisch sein Eigenrauschen hinzu.
+		 Das Gesamtrauschen des Verstärkers kann durch nachfolgendes Modell dargestellt werden:
+		 \begin{figure}[h!]
+		 	\centering
+		 	\includegraphics[scale=0.5]{GrundlagenVerstaerkermodell}
+		 	\caption{Einfaches Modell für Gesamtrauschen des Verstärkers}
+		 \end{figure}
+		 
+		 Dabei ist $R_{S}$ der angeschlossene Quellwiderstand mit dessem thermischen Eigenrauschen $e_{S}^2=4k_{B} TR_{S} \Delta f$, Eingangsspannungsrauschen $e_{n}$ und Eingangsstromrauschen $i_{n}$. Hierbei ist $k_{B} $ die Boltzmann Konstante, T die Temperatur und $\Delta f$ die Mess-oder Rauschbandbreite. Daraus ergibt sich am Ausgang die Bilanz:
+		 \begin{equation}
+		 	U_{A}^2=V^2 \left( e_{S}^2+e_{n}^2+R_{S}^2i_{n}^2 \right)
+		 \end{equation}
+		 Eine typische Abhängigkeit des Rauschens eines Verstärkers unter dem Quellwiderstand $R_{S}$ ist nachfolgend dargestellt.
+		 \begin{figure}[h!]
+		 	\centering
+		 	\includegraphics[scale=0.3]{Verstaerkerrauschen}
+		 	\caption{Verstärkerrauschen in Abhängigkeit des Quellwiderstandes}
+		 \end{figure}
+		 \newline
+		 Für niederohmige Quellwiderstände dominiert die Eingangsrauschspannung, für hochohmige der Eingangsrauschstrom. 
+		 Parameter des Verstärkerrauschens ist die Rauschzahl $F=SNR_{Eingang}/SNR_{Ausgang}>0$ für realen Verstärker. Für die Angabe im dB-Maß ist hierbei der Vorfaktor 10, nicht 20 zu wählen, da sich die SNR auf Signal- und Rauschleistungen beziehen. Rauschanpassung liegt vor, wenn der Verstärker der Quelle die minimale Menge an Zusatzrauschen hinzufügt: $R_{opt}=\frac{e_{n}}{i_{n}}$.
 \clearpage
 				 
 \section{Auswertung}
@@ -66,7 +175,7 @@
 			\subfigure[Spektrum $ \SI{500}{\milli\volt_{PP}} $]{\includegraphics[scale=0.25]{1_1_b_Spektrum_0,5Vpp}}
 		\end{figure}
 		
-		Im Aufgabenteil 1.1 c) sollte die Autokorrelationsfunktion des weißen Rauschen untersucht und mit dem Spektrum verglichen werden. Für die Autokorrelationsfunktion von weißem Rauschen wurde ein Diracimplus erwartet, da weißes Rauschen unabhängig von der Zeit ist. Es wurde dabei folgende Autokorrelationsfunktion aufgenommen. Man kann dabei einen Diracpuls mit einer gewissen Bereit bei t=\SI{1}{\sec} erkennen. Jedoch ist fraglich, ob die aufgenommene Autokorrelationsfunktion richtig ist, da keine Messwerte für $ x>1 $ vorhanden waren, sodass ich die Messwerte bearbeiten musste.
+		Im Aufgabenteil 1.1 c) sollte die Autokorrelationsfunktion des weißen Rauschen untersucht und mit dem Spektrum verglichen werden. Für die Autokorrelationsfunktion von weißem Rauschen wurde ein Diracimplus erwartet, da weißes Rauschen unabhängig von der Zeit ist. Es wurde dabei folgende Autokorrelationsfunktion aufgenommen. Man kann dabei einen Diracpuls mit einer gewissen Breite bei t=\SI{1}{\sec} erkennen. Jedoch ist fraglich, ob die aufgenommene Autokorrelationsfunktion richtig ist, da keine Messwerte für $ x>1 $ vorhanden waren, sodass ich die Messwerte bearbeiten musste.
 		\clearpage
 		
 		\begin{figure}[h!]
@@ -180,6 +289,13 @@
 		\clearpage
 \section{Diskussion}
 
+	Grundsätzlich kann es bei den Messungen zu nicht abschirmbaren Störungen gekommen sein, wie z.B. magnetischen Einkoppelungen oder EM-Einstrahlungen. Diese hätten dann als systematische Fehler meine Messungen maßgeblich beeinflusst. Auch liefert z.B. beim Versuchsteil Rauschgrundlagen im Spektrum die Netzspannung einen 50Hz Peak sowie Oberwellen bei 150, 300Hz, sowie die Stromversorgung über einen Transformator den 100Hz Peak. [Diese sieht man leider in den obigen Diagrammen e), f) nicht, da das Frequenzintervall zu groß gewählt ist.] Bei der Autokorrelationsfunktion wurden unvollständige Messreihen aufgenommen (keine Werte für x>1, sodass die Richtigkeit des Verlaufes nicht garantiert werden kann. Ansonsten hatten wir große Probleme bei dem Verstärkerrauschen ein 1/f Rauschen einzustellen. Erst nach langem probieren, fanden wir die richtigen Einstellungen der Labview Software und der Verstärkung, um das erwartete 1/f Rauschen erkennen zu können (Bild a), letzte Seite der Auswertung). Erschütterungen des Versuchsaufbaus, Kontaktprobleme durch oxidierte Kabelspitzen oder Ladungen, welche von den Händen auf den Versuchsaufbau übertragen werden, können die Messungen zufällig verfälscht haben.
+	
+
+	
 \section{Referenzen}
-				
+			\begin{itemize}
+			\item Versuchsgrundlagen "Rauschgrundlagen-Anleitung.pdf" und "Verstärkerrauschen.pdf"
+			\item zugehörige Tutorien  "Rauschgrundlagen-Tutorium.pdf" und "Verstärkerrauschen-Tutorium.pdf"
+\end{itemize}				
 \end{document}
