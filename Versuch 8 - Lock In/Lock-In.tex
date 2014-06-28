@@ -13,7 +13,7 @@
 \usepackage{subfigure}						% Zwei Bilder nebeneinander
 \usepackage{wrapfig}
 \usepackage{caption}						% Hilfsmittel, damit Bilder nicht auf die nächste Seite geschoben werden
-\usepackage[decimalsymbol=comma]{siunitx}				% Für schöne Einheiten mit Komma
+%\usepackage[decimalsymbol=comma]{siunitx}				% Für schöne Einheiten mit Komma
             
 
 
@@ -137,7 +137,85 @@
 				 \caption{Amplitudengang Nachverstärker}
 			 \end{figure}
 			 
-			 
+			 In Aufgabe 1.2.1 sollte nun experimentell die Bandbreite des Lock-in bestimmt werden.
+			 Dazu haben wir keine ganze Amplitudenübertragungsfunktion aufgezeichnet, sondern nur die Grenzfrequenz $ f_{g} $ und die Werte für $ U=U(f_{g})/\sqrt{2}$, also $ f_{oben} $ und $ f_{unten} $. Dazu verwendeten wir ein Referenzsignal von f=180Hz, welches vom Hameg-Generator erzeugt wurde. Als Signal-Generator diente der Agilent-Generator.
+			 Für einen Tiefpass-Widerstand von $ R=560 \ k\Omega $ bestimmten wir: \\
+			 $ f_{g}=180,053 \ Hz$,$f_{unten}=180,038 \ Hz $ und $f_{oben}=180,150 \ Hz$ .
+			 Daraus lässt sich eine Bandbreite von $ \Delta f = 0,112 \ Hz$ bestimmen.\\
+			 Für $ R=2,4 \ M\Omega$ war eine Messwertaufnahme nicht möglich, da der Hameg nicht konstant war und uns das Signal immer weggedriftet ist.
+			 \newline
+			 Die Aufgabe 1.2.2 haben wir aus zeitlichen Gründen nicht mehr bearbeiten können. Zu erwarten gewesen wäre, dass der Lock-in bis zu einem Signal-Rausch Verhältnis von etwa $ 10^{-6} $ Signale nachweisen kann.
+			
+		\subsection{Versuchstag 2 - Anwendung des Lock-in-Verstärkers}
+			In der Aufgabe 1.1 sollte der Lock-in als Spektralanalysator verwendet werden.
+			Zunächst sollte in Aufgabe 1.1.a ein durch den Agilent erzeugtes Rauschsignal an den Eingang des Lock-in gelegt werden, und für zwei Messfrequenzen die spektrale Rauschamplitude des Eingangssignals bestimmt werden. In Aufgabe 1.1.b soll anschließend noch die Verstärkung des Lock-in kalibriert werden. Dazu erzeugten wir mit dem Hameg ein Referenzsignal von f=180Hz, welches zu Beginn eine Amplitude von $ U_{Hameg}=U_{Referenz}=4,21 \ V_{pp} $ besaß. Die Amplitude des Rauschens war $ U_{Rauschen}=U_{Agilent}=300 \ mV_{pp} $. Da die Spannung des Hameg zu groß war, regelten wir diese über einen Spannungsteiler herunter. Die resultierende Spannung berechnet sich nach 
+			\begin{equation*}
+					U_{neu}=\frac{11\Omega \cdot U_{Hameg}}{R+11\Omega} \approx \frac{U_{Hameg}}{10000} =4,2\cdot 10^{-4} \ V_{pp} 
+			\end{equation*}
+			an bei einem Widerstand von $ R=100 \ k\Omega$ .
+			Mittels eines Mischers konnten wir entweder Rauschen alleine, Rauschen und Referenzsignal oder nur das Referenzsignal betrachten. Allerdings sorgte dieser nochmal wegen eines Spannungsteilers zu einem Abfall der Spannung um den Faktor 10 (aus $ \frac{910 \Omega}{(8.2 \ k\Omega +910\Omega)} \approx 0.1$). Daher kamen am Lock-In-Verstärkers folgende Signale an:
+			\begin{itemize}
+			\item Eingang: Rauschsignal mit $ U_{Eingang}=\frac{U_{Rauschen}}{10}=\frac{U_{Agilent}}{10}=30 \ mV_{pp}$
+			\item Referenzeingang: Sinus mit $ U_{Referenzeingang}\approx \frac{U_{Hameg}}{10 \cdot 10000 }= 0,042 \ mV_{pp}$
+			\end{itemize} 
+			Das Signal ist wie man sieht deutlich geringer als das Rauschen ($ SNR=\frac{U_{Signal}^2}{U_{Rauschen}^2}=1,96\cdot 10^{-6} $).\newline
+			Wir haben die folgenden Diagramme aufgenommen:
+			\begin{itemize}
+			\item Rauschen: a und b - ohne TT-Filter 180Hz
+			\begin{figure}[h!]
+			\subfigure[Rauschen Zeitbereich]{\includegraphics[scale=0.25]{A1aGraph1}}
+			\subfigure[Rauschen Frequenzbereich]{\includegraphics[scale=0.25]{A1a-Graph2}}
+			\end{figure}
+			\item Rauschen+Referenzsignal: c und d - ohne TT-Filter 180Hz
+				\begin{figure}[h!]
+						\subfigure[Gemisch Zeitbereich]{\includegraphics[scale=0.25]{A1aGemischGraph1}}
+						\subfigure[Gemisch Frequenzbereich]{\includegraphics[scale=0.25]{A1aGemisch-Graph2}}
+				\end{figure}
+			\item Rauschen + Referenzsignal mit TT-Filter 180Hz:
+				\begin{figure}[h!]
+						\subfigure[Gemisch mit TTF180 Zeitbereich]{\includegraphics[scale=0.25]{A1aTTF180Graph1}}
+						\subfigure[ Gemisch TTF180 Frequenzbereich]{\includegraphics[scale=0.25]{A1aTTF180Gemisch}}
+				\end{figure}
+			\end{itemize}
+			\clearpage
+			Aus den Messwerten des Zeitbereichs kann man den Mittelwert, die Standardabweichung und die Varianz berechnen. Für alle drei Diagramme sind diese hier in nachfolgender Tabelle zusammengefasst.
+			\center 
+			\begin{tabular}{|c|c|c|c|}
+			\hline  & Mittelwert in V & Standardabweichung in V & Varianz in $V^{2}$ \\ 
+			\hline Rauschen & 0,0707 & 0,10782 & 0,01162 \\ 
+			\hline Rauschen+Referenzsignal & -1,20722 & 0,23692 & 0,01611 \\ 
+			\hline Gemisch mit TTF180Hz & -0,84358 & 0,00545 & 2,97E-05 \\ 
+			\hline 
+			\end{tabular} 
+			\flushleft
+			Das Rauschen alleine wird durch den Lock-in ohne den TT-Filter um den Faktor 
+			\begin{equation*}
+			 V=\frac{U_{Ausgang}}{U_{Eingang}}= \frac{0,10782 V }{0,5\cdot 30\cdot 10^{-3}V}=7,2
+			\end{equation*} verstärkt [Faktor 0,5 für Umrechnung $ V_{pp} $ zu V].
+			Das Gemisch ohne den TT-Filter liefert weder im Frequenzbereich, noch im Zeitbereich einen Hinweis auf das Referenzsignal von f=180Hz. Bei beiden Frequenzbereichen ist jedoch immer ein sehr großer Gleichspannungsanteil bei f=0Hz zu erkennen. Dieser kommt durch das Wirken des PEG (Phasenempfindlichen Gleichrichters).\\
+			Erst im Frequenzbereich des Gemischs mit dem TT-Filter für 180Hz lässt sich deutlich ein Peak bei 360Hz, also der doppelten Referenzsignalfrequenz erkennen. Das der Peak bei der doppelten Frequenz liegt, lässt sich durch nachfolgende Rechnung einfach nachvollziehen:
+			\begin{align*}
+				Additionstheorem: \ \ \ \ \sin (x) \cdot \sin(y)&=\frac{1}{2}\left[\cos (x-y)-cos(x+y) \right] \\
+				Fall \ x=y: \ \ \ \ \ \ \ \ \ \ \ \ \sin^2(x)&=\frac{1}{2}\left[1-cos(2x) \right]
+			\end{align*}
+			Es ergibt sich bei der Überlagerung zweier Signale (hier vereinfacht zwei Sinus und nicht ein Sinus mit Rauschen) - und nichts anderes geschieht im Multiplikator - ein Gleichspannungsanteil $ 0,5 $ und ein Peak bei der doppelten Signalfrequenz $ 0,5\cdot \cos(2x)$.
+			Wenn man das weiß, so kann man das Signal von f=180Hz, welches ja deutlich kleiner ist, als das Rauschen [$ \Longrightarrow $ SNR] deutlich identifizieren.
+			\newline
+			In Aufgabe 1.1.c sollte nun das Spektrum des Rauschens aufgenommen werden. Dieses ist ein einfaches weißes Rauschen mit den charakteristischen Werten:
+			\center
+			\begin{tabular}{|c|c|c|}
+			\hline  & Varianz in $V^2$ & Standardabweichung in V \\ 
+			\hline vor Lock-in & 0,000444 & 0,0211 \\ 
+			\hline nach Lock-in & 0,01162 & 0,10782 \\ 
+			\hline 
+			\end{tabular} 
+			\flushleft
+		
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[scale=0.4]{A1c-Graph}
+				\caption{Weißes Rauschen im Frequenzbereich}
+			\end{figure}
 	\clearpage
 
 \section{Diskussion}
