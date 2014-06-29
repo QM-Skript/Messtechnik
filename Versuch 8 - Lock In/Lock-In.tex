@@ -124,6 +124,7 @@
 			
 			Anschießend untersuchten wir die Funktion des nachgeschalteten Tiefpasses. Diese wurde anhand der folgenden Bilder deutlich. Für die obigen Phasenverschiebungen und einen Tiefpass aus einem Widerstand mit $ R=18\ k\Omega $ und einem Kondensator mit $ C=10 \ \mu F $, haben wir Bilder aufgenommen. Nach Durchlauf durch den Kondensator ergaben sich für Zweiwegegleichrichtung folgende Verläufe.
 			 \begin{figure}[h!]
+			 \centering
 			 	\subfigure[Signal nach Tiefpass:$\Delta \phi = 0^\circ $]{\includegraphics[scale=0.4]{SCR00022}}
 			 	\subfigure[$ \Delta \phi = -90 ^\circ$]{\includegraphics[scale=0.4]{SCR00023}}
 			 \end{figure}
@@ -147,7 +148,8 @@
 			 Die Aufgabe 1.2.2 haben wir aus zeitlichen Gründen nicht mehr bearbeiten können. Zu erwarten gewesen wäre, dass der Lock-in bis zu einem Signal-Rausch Verhältnis von etwa $ 10^{-6} $ Signale nachweisen kann.
 			
 		\subsection{Versuchstag 2 - Anwendung des Lock-in-Verstärkers}
-			In der Aufgabe 1.1 sollte der Lock-in als Spektralanalysator verwendet werden.
+			
+			\subsubsection{Aufgabe 1.1 - Lock-in als Spektralanalysator}
 			Zunächst sollte in Aufgabe 1.1.a ein durch den Agilent erzeugtes Rauschsignal an den Eingang des Lock-in gelegt werden, und für zwei Messfrequenzen die spektrale Rauschamplitude des Eingangssignals bestimmt werden. In Aufgabe 1.1.b soll anschließend noch die Verstärkung des Lock-in kalibriert werden. Dazu erzeugten wir mit dem Hameg ein Referenzsignal von f=180Hz, welches zu Beginn eine Amplitude von $ U_{Hameg}=U_{Referenz}=4,21 \ V_{pp} $ besaß. Die Amplitude des Rauschens war $ U_{Rauschen}=U_{Agilent}=300 \ mV_{pp} $. Da die Spannung des Hameg zu groß war, regelten wir diese über einen Spannungsteiler herunter. Die resultierende Spannung berechnet sich nach 
 			\begin{equation*}
 					U_{neu}=\frac{11\Omega \cdot U_{Hameg}}{R+11\Omega} \approx \frac{U_{Hameg}}{10000} =4,2\cdot 10^{-4} \ V_{pp} 
@@ -158,7 +160,7 @@
 			\item Eingang: Rauschsignal mit $ U_{Eingang}=\frac{U_{Rauschen}}{10}=\frac{U_{Agilent}}{10}=30 \ mV_{pp}$
 			\item Referenzeingang: Sinus mit $ U_{Referenzeingang}\approx \frac{U_{Hameg}}{10 \cdot 10000 }= 0,042 \ mV_{pp}$
 			\end{itemize} 
-			Das Signal ist wie man sieht deutlich geringer als das Rauschen ($ SNR=\frac{U_{Signal}^2}{U_{Rauschen}^2}=1,96\cdot 10^{-6} $).\newline
+			Das Signal ist deutlich geringer als das Rauschen ($ SNR=\frac{U_{Signal}^2}{U_{Rauschen}^2}=1,96\cdot 10^{-6} $).\newline
 			Wir haben die folgenden Diagramme aufgenommen:
 			\begin{itemize}
 			\item Rauschen: a und b - ohne TT-Filter 180Hz
@@ -178,7 +180,8 @@
 				\end{figure}
 			\end{itemize}
 			\clearpage
-			Aus den Messwerten des Zeitbereichs kann man den Mittelwert, die Standardabweichung und die Varianz berechnen. Für alle drei Diagramme sind diese hier in nachfolgender Tabelle zusammengefasst.
+			Für alle Daten wurde ein Tiefpass mit einem Widerstand von $ R=18\,k\Omega $ und einem Kondensator mit $ C=10\, \mu F $ verwendet.
+			Aus den Messwerten des Zeitbereichs kann man den Mittelwert, die Standardabweichung und die Varianz berechnen.  Für alle drei Diagramme sind diese hier in nachfolgender Tabelle zusammengefasst.
 			\center 
 			\begin{tabular}{|c|c|c|c|}
 			\hline  & Mittelwert in V & Standardabweichung in V & Varianz in $V^{2}$ \\ 
@@ -201,7 +204,7 @@
 			Es ergibt sich bei der Überlagerung zweier Signale (hier vereinfacht zwei Sinus und nicht ein Sinus mit Rauschen) - und nichts anderes geschieht im Multiplikator - ein Gleichspannungsanteil $ 0,5 $ und ein Peak bei der doppelten Signalfrequenz $ 0,5\cdot \cos(2x)$.
 			Wenn man das weiß, so kann man das Signal von f=180Hz, welches ja deutlich kleiner ist, als das Rauschen [$ \Longrightarrow $ SNR] deutlich identifizieren.
 			\newline
-			In Aufgabe 1.1.c sollte nun das Spektrum des Rauschens aufgenommen werden. Dieses ist ein einfaches weißes Rauschen mit den charakteristischen Werten:
+			In Aufgabe 1.1.c sollte nun das Spektrum des Rauschens aufgenommen werden.  Dieses ist ein einfaches weißes Rauschen mit den charakteristischen Werten:
 			\center
 			\begin{tabular}{|c|c|c|}
 			\hline  & Varianz in $V^2$ & Standardabweichung in V \\ 
@@ -209,15 +212,64 @@
 			\hline nach Lock-in & 0,01162 & 0,10782 \\ 
 			\hline 
 			\end{tabular} 
-			\flushleft
+			\flushleft 
+			Der zugehörige Graph ist unten dargestellt: \newline
 		
-			\begin{figure}[h!]
+			\begin{figure}[h!t!bp]
 				\centering
-				\includegraphics[scale=0.4]{A1c-Graph}
+				\includegraphics[scale=0.35]{A1c-Graph}
 				\caption{Weißes Rauschen im Frequenzbereich}
 			\end{figure}
+			
+			
+			\subsubsection{Aufgabe 1.2 - Lock-in zur Detektion kleiner Signale}
+			In der nächsten Aufgabe sollte der Lock-in in seiner Anwendung zur Detektion kleiner Signale genutzt werden. Als Modulationseinrichtung wurde ein LED Modulator verwendet, der mit einem langsam veränderlichen Signal (1Hz, sinus, 5$ V $) gespeist wurde. Dies lies die Helligkeit der LED langsam, aber merklich anschwellen und abschwellen. Mithilfe einer Photodiode, welche mit einem $ R=1 \ M\Omega $-Widerstand parallel geschaltet wurde, konnte das Signal gelesen, und am Oszilloskop dargestellt werden. In diesem Aufbau konnte man das Signal nur erkennen, wenn man die Photodiode unmittelbar vor/an die LED gehalten hat:\\
+			\begin{figure}[h!b!]
+				\centering
+				\includegraphics[scale=0.40]{Signal-unmoduliert}
+				\caption{unmoduliertes Signal mit $U=5\, V $, unmittelbar vor LED}
+			\end{figure}
+			Hierbei ist das größere Signal das Eingangssignal (1Hz), und das nach oben verschobene Signal das Photodiodensignal. Es zeigt sich,dass die Amplitude des an der Photodiode aufgezeichneten Signals mit $ U_2= 48\,mV_{pp}$ wesentlich geringer ist, als das abgestrahlte Signal mit einer Spannungsamplitude von $ U_1=10 \, V_{pp} $. Daher haben wir uns im späteren Versuchsteil entschlossen eine Spannung von $U=10\,V$ anzulegen, um das Signal unmittelbar vor dem LED-Modulator deutlicher zu erkennen.\\
+			Nun wurde zusätzlich eine Modulationsfrequenz von $ f_{mod}=10\,Hz$ angelegt.  Was diese mit dem Signal macht, ist in nachfolgenden Bildern veranschaulicht.
+			\begin{figure}[h!]
+				\centering
+				\subfigure[$f_{mod}=10\,Hz \ , \ U_1=10\,V_{pp} \ , \ Abstand: \ 0\,cm $]{\includegraphics[scale=0.39]{moduliert10Hz-0cm}}
+				\subfigure[$ f_{mod}=10\,Hz \ , \ U_1=10\,V_{pp} \ , \ Abstand: \ 10\,cm $]{\includegraphics[scale=0.39]{moduliert10Hz-10cm}}
+			\end{figure}
+			Da die Modulationsfrequenz so gering gewählt ist, kann man deutlich erkennen, wie das Signal " zerhäckselt "/gepulst wird. Die Photodiodenspannung ist dabei von $ U_{2,0cm}=54,0 \,mV_{pp} $ auf $ U_{2,10cm}=36,0 \,mV_{pp} $  gesunken.
+			Nun haben wir die Eingangsamplitude erhöht auf $ U_1=10V $ und fanden für diesselben Einstellungen wie oben:\\
+			\begin{figure}[h!b!]
+				\centering
+				\includegraphics[scale=0.4]{moduliert10Hz-10Vpp-0cm}
+				\caption{$f_{mod}=10\,Hz \ , \ U_1=20\,V_{pp} \ , \ Abstand: \ 0\,cm $}
+			\end{figure}
+			Die Photodiodenspannungsamplitude ist mit $ U_2=88,0\,mV{pp} $ noch immer klein gegenüber der Eingangsspannung, jedoch deutlich besser zu erkennen als zuvor.\newline
+			In Aufgabe 1.2.b haben wir nun den maximal möglichen Abstand bestimmt, für den das unmodulierte Signal noch auflösbar ist. Im Prinzip ist die Lösung schon in Abbildung b) der letzten Seite dargestellt. Denn zunächst haben wir rein optisch geurteilt, bis wann noch eine Schwingung erkennbar ist. Dies war bei einem Abstand von 10cm der Fall.\newline
+			Für Aufgabe 1.2.c haben wir uns schließlich entschieden, dass wir die Entfernung l messen, bei der die Amplitude der Photodiode auf 10\% der Amplitude direkt vor der LED (l=0) abgefallen ist. Im Nachhinein war diese Entscheidung nicht besonders günstig. Die Eingangsspannung des LED Modulators blieb bei $ U_1=10\,V_{pp} $. Für eine Modulationsfrequenz von 180\,Hz, war mit dem Breitbandverstärker die Amplitude $ U_2(l=0\,cm)\approx128\,mV $ in l=25\,cm auf $ U_2(l=25\,cm)\approx12,8\,mV $ abgefallen [kein Bild aufgenommen]. Nur wenige Zentimeter weiter entfernt, war das Signal nicht mehr auflösbar. Für den exakteren Schmalbandverstärker mit dem hinzugeschalteten TT-Filter für 180Hz war hingegen - und das lässt an dem Bewertungskriterium zweifeln - schon in l=17\,cm die Spannungsamplitude der Photodiode von $ U_2(l=0\,cm)\approx24,3\,V $ [!!!] auf $ U_2(l=17\,cm)\approx2,4\,V $ gefallen. Dies ist in nachfolgenden Diagrammen illustriert.\\
+			\begin{figure}[h!]
+			\centering
+				\subfigure[Schmalbandverstärker, l=0cm]{\includegraphics[scale=0.4]{fmod=180Hz-Schmalband-0cm}}
+				\subfigure[Schmalbandverstärker, l=17cm]{\includegraphics[scale=0.4]{fmod=180Hz-Schmalband-17cm}}
+			\end{figure}
+			Es lassen sich in beiden Diagrammen Unstetigkeiten erkennen. Diese Entstehen jedoch dadurch, dass LED Modulator und Photodiode nicht fest justiert sind, sondern von den Experimentatoren per Hand gehalten und ausgelenkt werden (->Diskussion).
+			Jedoch am Ende des Tisches in 1\,m Entfernung ergab sich noch folgendes, unten dargestelltes, auflösbares Signal. Rechts daneben ist im Vergleich das "Nullpunktsrauschen" der Photodiode aufgenommen, d.h. das Ausgangssignal bei ausgeschaltetem LED-Modulator. Wie man gut erkennt, ist das Signal durchaus noch auflösbar und unterscheidet sich sowohl in Intensität, als auch in der Form von dem Nullpunktsrauschen.\clearpage
+			\begin{figure}[h!t!]
+					\centering
+					\subfigure[Schmalbandverstärker, l=1\,m]{\includegraphics[scale=0.4]{fmod=180Hz-Schmalband-1m}}
+					\subfigure[Schmalbandverstärker, Nullpunktsrauschen]{\includegraphics[scale=0.4]{Nullpunktsrauschen-Schmalband}}
+			\end{figure}
+			Zum Schluss verwendeten wir in Aufgabenteil 1.2.d) den vollständigen Lock-in, mit dem TT-Filter 180Hz. Da direkt vor der LED die Ausgangsspannung ungeheuer groß wurde, haben wir außnahmsweise bei l=2\,cm mit $ U_2(l=2cm)=15,7\,V $ unseren "Nullpunkt" gesetzt. Jedoch schon nach l=19\,cm ist die Spannung auf 10\% des Ausgangswertes abgefallen. \\
+			Dann testeten wir, in welcher Entfernung das Signal noch auflösbar war. Dazu nahmen wir die Kabelrolle mit dem BNC-Kabel und versuchten das Signal aufzufangen. Dies war durch den gesamten Versuchsraum möglich und noch gut auflösbar. Also kann man qualitativ für die maximal auflösbare Distanz nur sagen: $ >7,5\,m $. Ein interessanter Test wäre es gewesen, wenn wir für fest-justierte und ausgerichtete LED-Modulator und Photodiode die maximal mögliche Distanz ausgetestet hätten (Gang, etc.). Denn da Potential des Lock-in ist wesentlich größer.\newline
+			\\
+			Die dritte Aufgabe 1.3 sollte nicht bearbeitet werden.
+			
 	\clearpage
 
 \section{Diskussion}
+- ZUsammenhang Standardabweichung Rauschen vor Lock-in und nach Lock-in überlegen (Aufgabe 1.1.c) \\
+				- z.B. Verluste des LED-Modulators...\\
+				- schlechte Wahl des Bewertungskriteriums -- besser SNR=1\\
+				- Unstetigkeiten in den Diagrammen ... wackler und halten des LED-Modulators und der Photodiode mit der Hand\\
+				- Woher kommen die Schwingungen im "Nullpunktssignal" des Schmalbandverstärkers??? - andere Versuchsplätze oder so...
 				
 \end{document}
