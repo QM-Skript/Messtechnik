@@ -1,9 +1,14 @@
 \select@language {ngerman}
 \contentsline {section}{\numberline {1}Aufgaben}{2}{section.1}
-\contentsline {section}{\numberline {2}Grundlagen}{3}{section.2}
-\contentsline {section}{\numberline {3}Auswertung}{4}{section.3}
-\contentsline {subsection}{\numberline {3.1}Versuchstag 1 - Grundlagen des Lock-In Verst\IeC {\"a}rkers}{4}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Versuchstag 2 - Anwendung des Lock-in-Verst\IeC {\"a}rkers}{9}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Aufgabe 1.1 - Lock-in als Spektralanalysator}{9}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Aufgabe 1.2 - Lock-in zur Detektion kleiner Signale}{12}{subsubsection.3.2.2}
-\contentsline {section}{\numberline {4}Diskussion}{16}{section.4}
+\contentsline {subsection}{\numberline {1.1}Aufgaben des ersten Tages}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Aufgaben des zweiten Tages}{2}{subsection.1.2}
+\contentsline {section}{\numberline {2}Grundlagen}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Allgemeines zum Lock-in-Verst\IeC {\"a}rker}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Funktionsweise des Lock-in-Verst\IeC {\"a}rkers}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Anwendungen des Lock-In-Verst\IeC {\"a}rkers}{5}{subsection.2.3}
+\contentsline {section}{\numberline {3}Auswertung}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Versuchstag 1 - Grundlagen des Lock-In Verst\IeC {\"a}rkers}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Versuchstag 2 - Anwendung des Lock-in-Verst\IeC {\"a}rkers}{12}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Aufgabe 1.1 - Lock-in als Spektralanalysator}{12}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Aufgabe 1.2 - Lock-in zur Detektion kleiner Signale}{15}{subsubsection.3.2.2}
+\contentsline {section}{\numberline {4}Diskussion}{19}{section.4}

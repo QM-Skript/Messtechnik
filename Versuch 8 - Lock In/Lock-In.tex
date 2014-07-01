@@ -28,12 +28,86 @@
 
 \section{Aufgaben}
 
+\subsection{Aufgaben des ersten Tages}
+	\begin{itemize}
+		\item Komponenten des Lock-in-Verstärkers
+		\begin{itemize}
+			\item Bestimmen Sie die Bandbreite des Breitbandverstärkers aus dessen Amplitudenübertragungsfunktion.
+			\item Untersuchen Sie die zwei TT-Filter des Lock-in-Baukastens. Bestimmen Sie die Mittenfrequenz sowie die Bandbreite der Filter. Wie groß ist jeweils die Güte?
+			\item Nehmen Sie die Amplitudenübertragungsfunktion für 5 verschiedene Rückkoppelgrade auf und bestimmen Sie erneut die Güte.
+			\item Welche maximale Phasenverschiebung kann mit dem vorliegenden Phasenschieber bei 180 Hz erhalten werden?
+			\item Nehmen Sie entsprechende Signalverläufe zur Beschreibung der Gleichrichtungswirkung des phasenempfindlichen Gleichrichters für Ein- und Zweiweggleichrichtung auf.
+			\item Welche Funktion hat der nachgeschaltete Tiefpass? Beschreiben Sie die Funktionsweise im Zeit- sowie Frequenzbereich.
+			\item Charakterisieren Sie den Nachverstärker.
+		\end{itemize}
+		\item Funktion und Eigenschaften des Lock-in-Verstärkers
+		\begin{itemize}
+			\item Bestimmen Sie experimentell die Bandbreite des Lock-in-Verstärkers.
+			\item Bis zu welchem Signal-Rausch-Verhältnis können Sie mit dem Lock-in ein Signal noch nachweisen?
+		\end{itemize}
+	\end{itemize}
+	
+\subsection{Aufgaben des zweiten Tages}
+	\begin{itemize}
+		\item Lock-in als Spektralanalysator
+		\begin{itemize}
+			\item Legen Sie ein Rauschsignal an den Eingang des Lock-in-Verstärkers. Wählen Sie
+			mit Hilfe eines Frequenzgenerators zwei Messfrequenzen aus und bestimmen Sie
+			die spektrale Rauschamplitude des Eingangssignals.
+			\item Kalibrieren Sie die Verstärkung des Lock-in-Verstärkers.
+			\item Nehmen Sie das Spektrum des Rauschsignals auf. Bringen Sie das bestimmte
+			Spektrum sowie die mit dem Lock-in gemessene Rauschamplitude in Einklang.
+		\end{itemize}
+		\item Lock-in zur Detektion kleiner Signale
+		\begin{itemize}
+			\item Machen Sie sich mit der Funktionsweise des LED Modulators vertraut.
+			\item Bestimmen Sie die maximale Distanz, über die ein niederfrequentes Signal
+			unmoduliert übertragen werden kann.
+			\item Modulieren Sie das Signal aus Aufgabe 1.2 b) mit einer Modulationsfrequenz von
+			180 Hz. Nutzen Sie den Schmalbandverstärker des Lock-in und bestimmen Sie
+			erneut die maximal mögliche Übertragungsdistanz.
+			\item Benutzen Sie nun den vollständigen Lock-in zum Nachweis des Signals aus
+			Aufgabe 1.2 c). Wie weit können Sie nun das Signal übertragen?
+		\end{itemize}
+	\end{itemize}
 	
 \clearpage
 
 \section{Grundlagen}
+	
+	\subsection{Allgemeines zum Lock-in-Verstärker}
+	Ein Lock-in-Verstärker wird verwendet um ein schwaches Signal, das mit einer gegebenen Frequenz moduliert wurde zu verstärken. Der Lock-in-Verstärker ist dabei extrem schmalbandig. Durch dieses gezielte schmalbandige Verstärken, kann das Signal-Rausch-Verhältnis reduziert werden. Die Frequenzmodulation kann zum Beispiel mit einem Chopper und einem Laser erfolgen. Durch das periodische Verdecken des Laserstrahls kommt es zu einer Amplitudenmodulation (Multiplikation mit Rechteckfunktion). 
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.4]{650px-Messanordnung_Lock-in-Verstaerker.png}
+		\caption{Beispiel der Anwendung eines Lock-in-Verstärkers}
+	\end{figure}
+	
+	\subsection{Funktionsweise des Lock-in-Verstärkers}
+	
+	Das Aufgabe des Lock-in-Verstärkers ist es ein moduliertes Signal möglichst schmalbandig mit einem guten Signal-Rausch-Verhältnis zu verstärken. Dafür wird neben dem modulierten Messsignal auch ein Referenzsignal mit der Modulationsfrequenz benötigt. Diese beiden Signale werden miteinander gemischt und anschließend an einen Tiefpass angelegt. Durch die Modulation kommt es zu Seitenbändern, wobei da gilt $ f_{Ref} - f_{Sig} = 0 $ ein Seitenband an die Stelle $ f = 0 $ "gespiegelt" wird. Durch den dahinter verwendeten Tiefpass bleibt nur dieser Teil des Spektrum übrig und das andere Seitenband und das Hauptsignal werden weg gefiltert.
+	\clearpage
+	
+	\begin{figure}[h!]
+		\centering
+		\subfigure[Theoretischer Aufbau eines Lock-In-Verstärkers.]{\includegraphics[scale=0.2]{LockInAufbau}}
+		\subfigure[Anwendung des Tiefpass.]{\includegraphics[scale=0.4]{Tiefpass_Lock_In}}
+	\end{figure}
+
+	An den unterschiedlichen Stellen des Lock-In-Verstärkers ergeben sich somit folgende Zeitverläufe. Für das Referenzsignal wurde hier eine Rechteckspannung mit der Frequenz des Eingangssignal gewählt. Zum Modulieren wurde ein Einweggleichrichter bzw. Zweiweggleichrichter verwendet. Es wurden dabei unterschiedliche Phasenverschiebungen verwendet.
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.4]{Signale}
+		\caption{Zeitverläufe an unterschiedlichen Stellen und für unterschiedliche Phasenverschiebungen.}
+	\end{figure}
 		
-		
+	Somit verstärkt der Lock-In-Verstärker sehr schmalbandig in der Nähe der Modulations- bzw. Referenzfrequenz. Die Bandbreite des Lock-In-Verstärkers wird dabei durch die Grenzfrequenz des Tiefpasses fest gelegt. Da ein Tiefpass sich relativ einfach realisieren lässt (zum Beispiel Widerstand und Kondensator) können sehr kleine Bandbreiten erzielt werden. Durch einen Lock-In-Verstärker lassen sich Signale mit einem Singal-Rausch-Verhältnis von bis zu $ 10^-{-6} $ nachweisen.	
+	
+	\subsection{Anwendungen des Lock-In-Verstärkers}
+	Der Lock-In-Verstärker wird dort verwendet wo kleine Signale mit einem kleinen Signal-Rausch-Verhältnissen gemessen werden müssen. Dabei muss das Signal modulierbar sein. In diesem Versuch haben wir zum Beispiel eine modulierte Leuchtdiode über eine größere Entfernung übertragen. Technische Anwendungen sind zum Beispiel Signalübertragung, optische Spektroskopie, Phasenmessung und Spektrenanalysatoren. 
+	
 	\clearpage
 				 
 \section{Auswertung}		
@@ -266,10 +340,11 @@
 	\clearpage
 
 \section{Diskussion}
-- ZUsammenhang Standardabweichung Rauschen vor Lock-in und nach Lock-in überlegen (Aufgabe 1.1.c) \\
-				- z.B. Verluste des LED-Modulators...\\
-				- schlechte Wahl des Bewertungskriteriums -- besser SNR=1\\
-				- Unstetigkeiten in den Diagrammen ... wackler und halten des LED-Modulators und der Photodiode mit der Hand\\
-				- Woher kommen die Schwingungen im "Nullpunktssignal" des Schmalbandverstärkers??? - andere Versuchsplätze oder so...
+
+	In Aufgabe 1.2 d) sollte sich ein Kriterium überlegt werden um die unterschiedlichen Verstärker (Lock-In, Breitband-, Schmalband-Verstärker) zu Vergleichen. Unser Kriterium war dabei so gewählt, dass die Photodiode direkt vor die Leuchtdiode geholten wurde und die verstärkte Amplitude gemessen wurde. Wir haben dann fest gelegt, dass man Signale noch erkennen kann, solange diese größer als 10 \% der Ursprungsamplitude sind. Dabei ist uns aufgefallen, dass dieses Kriterium nicht aussagekräftig ist, da für alle drei untersuchten Verstärker ungefähr der gleiche Abstand gemessen wurde, obwohl beim Lock-In-Verstärker das Signal noch für deutlich größere Entfernung mit dem Auge erkennbar war. Schlauer wäre gewesen zu Beginn die Photodiode nicht direkt vor die Leuchtdiode zu halten sonder in einem festgelegten Abstand (zum Beispiel 10 cm) zu wählen und die an dieser Stelle gemessene Amplitude als Referenzamplitude zu nehmen. Eine andere aufwändigere Methode wäre gewesen als Kriterium ein Signalrauschverhältnis von 1 zu wählen. Des weiteren 
+	
+	Des weiteren war es schwer die Photodiode mit der Hand ruhig zu halten und es kann durch aus sein, dass das Rauschen in den Abbildungen (c) und (d) zu der Signalübertragung mit der modulierten Leuchtdiode durch das Wackeln mit der Hand verursacht wurde. Hinzu kommt auch noch, dass wir die maximal übertragbare Distanz mit dem Lock-In-Verstärker leider nicht ermitteln konnten, da uns leider nur der Gang zwischen den Versuchsplätzen zur Verfügung stand und es uns zeitlich leider nicht möglich war auf den Flur zu gehen. Jedoch lies sich feststellen, dass das Signal der Leuchtdiode über eine Strecke von $ 7,5 \, m $ übertragen lies und noch gut zu erkennen war. Dies ist sehr beachtlich, da für diesen Versuch der Raum nicht verdunkelt wurde sondern mit Streulicht gearbeitet wurde.
+	
+	In den Diagrammen zur Übertragung des Signals mit dem Schmalbandverstärker sind Unstetigkeitsstellen im Bereich von t = 0 zu sehen. Da für die Aufnahme der Bilder das Oszilloskop im Digitalmodus betrieben werden musste, gehe ich davon aus, dass diese durch ein Wackeln der Photodiode zustande gekommen sind. 
 				
 \end{document}
